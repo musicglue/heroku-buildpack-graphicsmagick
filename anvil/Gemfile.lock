@@ -1,0 +1,23 @@
+GIT
+  remote: git://github.com/musicglue/anvil-cli.git
+  revision: 93db8125c49fcd472f427ae88e85bcdf9e5e694a
+  specs:
+    anvil-cli (0.16.1)
+      progress (~> 2.4.0)
+      rest-client (~> 1.6.7)
+      thor (~> 0.15.2)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    mime-types (2.1)
+    progress (2.4.0)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
+    thor (0.15.4)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  anvil-cli!

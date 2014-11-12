@@ -1,0 +1,18 @@
+#!/usr/bin/env sh
+
+[[ -z "$ANVIL_DOWNLOAD_PATH" ]] && ANVIL_DOWNLOAD_PATH="/tmp" || :
+
+slug_path="$ANVIL_DOWNLOAD_PATH/GraphicsMagick-1.3.20.tar.gz"
+rm -f $slug_path
+
+cd ./gm
+slug_url=$(anvil build . -b ./build.sh -p)
+cd ..
+
+echo "Slug url: $slug_url"
+echo ""
+echo "Downloading slug to $slug_path:"
+echo ""
+curl -SL --progress-bar $slug_url -o $slug_path
+echo ""
+echo "Done."
