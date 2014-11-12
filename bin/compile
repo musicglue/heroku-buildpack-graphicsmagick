@@ -91,7 +91,7 @@ mkdir -p $gm_lib_path
 
 # vendor directories
 VENDORED_GRAPHICSMAGICK="$(mktmpdir graphicsmagick)"
-package_download "${REMOTE_PATH}" "${VENDORED_GRAPHICSMAGICK}" "http://musicglue-buildpacks.s3.amazonaws.com/graphicsmagick-1.3.20.tgz"
+package_download "${REMOTE_PATH}" "${VENDORED_GRAPHICSMAGICK}" "${GRAPHICS_MAGICK_BINARY_URL}"
 
 mkdir -p "$BUILD_DIR/bin/"
 cp $VENDORED_GRAPHICSMAGICK/bin/* "$BUILD_DIR/bin/"
