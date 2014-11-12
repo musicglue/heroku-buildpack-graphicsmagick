@@ -28,9 +28,10 @@ function package_download() {
   local remote location
   remote="$1"
   location="$2"
+  bucket=`[ $3 ] && echo $3 || echo $S3_BUCKET`
 
   mkdir -p $location
-  package="http://s3.amazonaws.com/${S3_BUCKET}/${remote}"
+  package="http://s3.amazonaws.com/${bucket}/${remote}"
   curl $package -s -o - | tar xzf - -C $location
 }
 
@@ -90,7 +91,7 @@ mkdir -p $gm_lib_path
 
 # vendor directories
 VENDORED_GRAPHICSMAGICK="$(mktmpdir graphicsmagick)"
-package_download "${REMOTE_PATH}" "${VENDORED_GRAPHICSMAGICK}"
+package_download "${REMOTE_PATH}" "${VENDORED_GRAPHICSMAGICK}" "musicglue-buildpacks"
 
 mkdir -p "$BUILD_DIR/bin/"
 cp $VENDORED_GRAPHICSMAGICK/bin/* "$BUILD_DIR/bin/"
